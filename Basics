@@ -1,3 +1,4 @@
+https://portswigger.net/web-security/sql-injection/cheat-sheet
 Basic Methods:
     Retrieving hidden data - where you can modify an SQL query to return additional results.
     Subverting application logic - where you can change a query to interfere with the application's logic.
@@ -10,6 +11,7 @@ Commands in SQL:
     
 1. Where clause in http get method. 
 2. Bypass login username, password doesn't matter. Where clause again.
+3. Examining the database
 
 
 
@@ -39,3 +41,9 @@ Need to increase burp skills
 csrf=WdhkXnM3RCCBUnPOw4jLxb1qGaAT4mZn&username=administrator%27--&password=1111111
 ' to hex is 27
 Learned intercept to hack from there and the GUI
+
+3. Examining the database
+Oracle:
+SELECT * FROM v$version
+SELECT * FROM information_schema.tables; schema is just tabled and column info no data just the meta.
+
