@@ -43,6 +43,7 @@ csrf=WdhkXnM3RCCBUnPOw4jLxb1qGaAT4mZn&username=administrator%27--&password=11111
 Learned intercept to hack from there and the GUI
 
 3. Examining the database
+https://portswigger.net/web-security/sql-injection/examining-the-database
 Oracle:
 SELECT * FROM v$version
 SELECT * FROM information_schema.tables; schema is just tabled and column info no data just the meta.
