@@ -19,6 +19,7 @@ Commands in SQL:
 
 
 
+
 1. Where clause in http get method. 
 https://insecure-website.com/products?category=Gifts Real web page
 https://insecure-website.com/products?category=Gifts'--   Injection, Single quote gives Gifts inned 'Gifts' as app tacks on '' outer. 
@@ -46,9 +47,10 @@ Learned intercept to hack from there and the GUI
 
 3. Examining the database
 https://portswigger.net/web-security/sql-injection/examining-the-database
-Oracle:
-SELECT * FROM v$version
-SELECT * FROM information_schema.tables; schema is just tabled and column info no data just the meta.
+Oracle: SELECT * FROM v$version UNION SELECT * FROM information_schema.tables; schema is just tabled and column info no data just the meta.
+Microsoft, MySQL: 	SELECT @@version 
+PostgreSQL: 	SELECT version() 
+A. 
 
 4. Blind SQL injection vulnerabilities
 https://portswigger.net/web-security/sql-injection/blind
