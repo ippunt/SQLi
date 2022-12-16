@@ -22,7 +22,7 @@ Commands in SQL:
 
 1. Where clause in http get method. 
 https://insecure-website.com/products?category=Gifts Real web page
-https://insecure-website.com/products?category=Gifts'--   Injection, Single quote gives Gifts inned 'Gifts' as app tacks on '' outer. 
+https://insecure-website.com/products?category=Gifts'--   Injection, Single quote gives Gifts inner quote 'Gifts' as app tacks on '' outer. 
 SELECT * FROM products WHERE category = 'Gifts' AND released = 1;   Real query
 SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1;  What our '-- did
 You need to get all categories released and unlreleased:
@@ -44,6 +44,8 @@ Need to increase burp skills
 csrf=WdhkXnM3RCCBUnPOw4jLxb1qGaAT4mZn&username=administrator%27--&password=1111111
 ' to hex is 27
 Learned intercept to hack from there and the GUI
+http://code.cside.com/3rdpage/us/url/converter.html
+IN URL % means hex code follows. 
 
 3. Examining the database
 https://portswigger.net/web-security/sql-injection/examining-the-database
