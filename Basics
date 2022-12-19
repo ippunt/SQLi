@@ -8,6 +8,8 @@ Basic Methods:
 Commands in SQL:    
     -- Comment
     
+Things Learned:
+https://www.w3schools.com/tags/ref_urlencode.ASP    URL encoding a + or a % 20 is a space. 
     
 1. Where clause in http get method. 
 2. Bypass login username, password doesn't matter. Where clause again.
