@@ -1,0 +1,14 @@
+1. Make the database retrieve the string: 'tWGj2h'; Find the column containing string
+2.
+
+
+
+
+1.
+'--;Validate injection location
+' ORDER BY 3--; validate column quanitity
+' UNION SELECT NULL,'tWGj2h',NULL --; This was the answer and the second column is the number visually. Which would make you think non-string. Don't think you know things!
+The second column of the query would actually show up in the first location which looked like words or strings. 
+
+2.
+
