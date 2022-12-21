@@ -45,6 +45,12 @@ Put payload into intuder, "Clear §" button.
 "Clear §" button. 
 Cookie: TrackingId=aaaaaaaaaaaa' AND (SELECT (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='a;
   High light a and select add §    You a then becomes §a§
-  payloads, Type Simple list > Add from list!!! 
-  options, grep match Welcome back
+  payloads, Type Brute Force.
+  options, grep match Welcome back  don't use quotes as you might on linux
+  Cookie: TrackingId=ACyfdDO0lU6oWNyk'+AND+(SELECT+SUBSTRING(password,1,1)+FROM+users+WHERE+username%3d'administrator')%3d'§a§'--;
+  Watched Michael Sommer who didn't use URL encoing must be using a BURP config to do that. 
+  
+  Now with Cluster Bomb attack to get it done with one and done:
+  Attack Type in Intruder main page is Cluster bomb. Iterates through them both like a for in a for. 
+    Ensure you have both Add S and the first one is the first payload, iterates first payload 1-20 with a, then 1-20 with b.
   
