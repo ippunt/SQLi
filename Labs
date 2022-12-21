@@ -1,7 +1,7 @@
 1. Make the database retrieve the string: 'tWGj2h'; Find the column containing string
 2. Retrieve data from other tables. Find users table and look for administrator password. 
 3. Retreive multiple values in a single column. 
-4. Blind SQL injection with conditional responses
+4. Blind SQL injection with conditional responses. Find injection vector, conditional response will respond true or false. 
 
 
 
