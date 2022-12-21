@@ -1,6 +1,7 @@
 1. Make the database retrieve the string: 'tWGj2h'; Find the column containing string
 2. Retrieve data from other tables. Find users table and look for administrator password. 
 3. Retreive multiple values in a single column. 
+4. Blind SQL injection with conditional responses
 
 
 
@@ -25,3 +26,7 @@ You had to know string was second column and not the first. Lesson always genera
 Microsot / MYSQL:
 CONCAT ( string_value1, string_value2 [, string_valueN ] )
 
+4.
+So, when we inject anything into the get request URL nothing comes back but the welcome back. The clue here was the welcome back and the trackin id was the injection vector. 
+Cookie: TrackingId=aaaaaaaaaaaaaaaa' and '1'='2; session=aaaaaaaaaaaaaaaaaaaaaaaaa     This gave us no welcome back
+Cookie: TrackingId=aaaaaaaaaaaaaaaa' and '1'='1; session=aaaaaaaaaaaaaaaaaaaaaaaaa     This provided welcome back we have are injection vector. 
