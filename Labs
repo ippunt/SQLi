@@ -2,6 +2,7 @@
 2. Retrieve data from other tables. Find users table and look for administrator password. 
 3. Retreive multiple values in a single column. 
 4. Blind SQL injection with conditional responses. Find injection vector, conditional response will respond true or false. 
+5. Blind SQP injection with conditional errors. 
 
 
 
@@ -54,3 +55,4 @@ Cookie: TrackingId=aaaaaaaaaaaa' AND (SELECT (SELECT SUBSTRING(password,1,1) FRO
   Attack Type in Intruder main page is Cluster bomb. Iterates through them both like a for in a for. 
     Ensure you have both Add S and the first one is the first payload, iterates first payload 1-20 with a, then 1-20 with b.
   
+  5. 
