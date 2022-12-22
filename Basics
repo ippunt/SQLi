@@ -52,7 +52,7 @@ IN URL % means hex code follows.
 3. Examining the database
 https://portswigger.net/web-security/sql-injection/examining-the-database
 DATABASE VERSION
-Oracle: SELECT v$version 
+Oracle: SELECT v$version from dual; Oracle requires that a excplicit table is selected. 
 Microsoft, MySQL: 	SELECT @@version 
 PostgreSQL: 	SELECT version() 
 A. Oracle 
